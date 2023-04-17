@@ -1,0 +1,67 @@
+﻿.register {
+	width: 100%;
+	position: absolute;
+	top: 10%;
+	text-align: center;
+}
+
+.form a {
+	font-size: 30px;
+	font-weight: 500;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.input {
+	width: 80%;
+	font-size: 20px;
+	border-radius: 8px;
+	border-color: black;
+	text-align: center;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	padding: 5px 15px;
+	box-sizing: border-box;
+	margin: 3%;
+}
+
+a {
+	text-decoration: none;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.links a {
+	font-size: 20px;
+	color: lightblue;
+}
+
+	.links a:hover {
+		color: royalblue;
+	}
+
+.form {
+	background: rgba(255,255,255, 0.9);
+	display: inline-block;
+	width: 20%;
+	margin: 3%;
+	border-radius: 8px;
+	padding: 20px 20px;
+	position: relative;
+	text-align: center;
+	box-shadow: rgba(0, 0, 0.25, 0.25) 0px 54px 55px;
+}
+
+.button {
+	background-color: mediumseagreen;
+	border: none;
+	color: white;
+	padding: 4% 30%;
+	text-align: center;
+	text-decoration: none;
+	margin: 3%;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+	.button:hover {
+		background-color: forestgreen;
+	}

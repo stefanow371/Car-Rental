@@ -1,0 +1,76 @@
+﻿body {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.register {
+	position: absolute;
+	top:10%;
+	width: 100%;
+	text-align: center;
+}
+
+.input {
+	width: 80%;
+	background-color: white;
+	border-radius: 4px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.helper {
+	margin: 2%;
+}
+
+	.helper a {
+		font-size: 15px;
+		color: lightblue;
+	}
+
+		.helper a:hover {
+			color: darkblue;
+		}
+
+.pick {
+	margin: 1%;
+}
+
+.form {
+	opacity: 0.8;
+	display: inline-block;
+	background-color: white;
+	width: 20%;
+	height: auto;
+	margin: 3%;
+	border-radius: 8px;
+	padding: 1% 1%;
+	position: relative;
+	text-align: center;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px;
+}
+
+	.form a {
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+.button {
+	background-color: darkblue;
+	border: none;
+	color: white;
+	padding: 3% 20%;
+	text-align: center;
+	text-decoration: none;
+	margin: 3%;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 40px;
+}
+
+	.button:hover {
+		background-color: lightblue;
+	}

@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Car_Rental.MasterPage" %>
+
+<!DOCTYPE html>
+
+<link href="../CSS/MasterPage.css" rel="stylesheet" />
+<html>
+<head runat="server">
+	<title></title>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<header>
+		<div class="navbar">
+			<img src="../Pages/Pictures/LOGO.png" alt="logo" class="logo" />
+			<nav>
+				<ul>
+					<li><a id="adminPanel" visible="false" runat="server" href="../Pages/AdminAddProduct.aspx">Dodaj Produkt</a></li>
+					<li><a href="HomePage.aspx">Strona Główna</a></li>
+					<li><a href="CustomerRents.aspx">Twoje Wypożyczenia</a></li>
+					<li><a href="Proposal.aspx">Oferta</a></li>
+					<li><a id="signIn" runat="server" href="../Pages/SignIn.aspx">Zaloguj</a></li>
+					<li><a id="account" runat="server" visible="false" href="../Pages/CustomerPanel.aspx">Konto</a></li>
+					<li><a id="logOut" visible="false" runat="server" onserverclick="logout_Click">Wyloguj</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="bkg"></div>
+	</header>
+	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+	</asp:ContentPlaceHolder>
+	<footer>
+		<div class="footer">
+			<ul class="infos">
+				<li><a href="Contact.aspx">Kontakt</a></li>
+				<li><a href="Policy.aspx">Polityka Prywatności</a></li>
+				<li><a href="AboutUs.aspx">O nas</a></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

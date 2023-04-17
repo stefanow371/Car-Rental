@@ -1,0 +1,211 @@
+/*==============================================================*/
+/* DBMS name:      Microsoft SQL Server 2008                    */
+/* Created on:     22.12.2022 16:52:40                          */
+/*==============================================================*/
+
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Account')
+            and   type = 'U')
+   drop table Account
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('CarDetails')
+            and   type = 'U')
+   drop table CarDetails
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('CardPayment')
+            and   type = 'U')
+   drop table CardPayment
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Proposal')
+            and   name  = 'Relationship_1_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Proposal.Relationship_1_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Proposal')
+            and   type = 'U')
+   drop table Proposal
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Rent')
+            and   name  = 'Relationship_6_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Rent.Relationship_6_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Rent')
+            and   name  = 'Relationship_4_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Rent.Relationship_4_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Rent')
+            and   type = 'U')
+   drop table Rent
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Support')
+            and   name  = 'Relationship_8_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Support.Relationship_8_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Support')
+            and   type = 'U')
+   drop table Support
+go
+
+/*==============================================================*/
+/* Table: Account                                               */
+/*==============================================================*/
+create table Account (
+   acc_Id               int                  not null,
+   acc_name             char(32)             not null,
+   acc_last_name        char(32)             not null,
+   acc_gender           char(10)             not null,
+   acc_city             char(32)             not null,
+   acc_street           char(32)             not null,
+   acc_house_number     int                  not null,
+   acc_login            char(16)             not null,
+   acc_password         char(16)             not null,
+   acc_email            char(32)             not null,
+   acc_postal_code      char(10)             not null,
+   acc_is_Admin         bit                  not null,
+   acc_phone_number     numeric(9)           not null,
+   acc_profile_photo    char(1000)           null,
+   constraint PK_ACCOUNT primary key nonclustered (acc_Id)
+)
+go
+
+/*==============================================================*/
+/* Table: CarDetails                                            */
+/*==============================================================*/
+create table CarDetails (
+   car_Id               int                  not null,
+   car_brand            char(64)             not null,
+   car_model            char(64)             not null,
+   car_production_year  numeric(4)           not null,
+   car_engine_capacity  numeric              not null,
+   car_drive_type       char(32)             not null,
+   car_fuel_type        char(32)             not null,
+   car_doors_amount     numeric(1)           not null,
+   car_seats_amount     numeric(1)           not null,
+   car_is_air_conditioning bit                  not null,
+   car_gear_type        char(32)             not null,
+   constraint PK_CARDETAILS primary key nonclustered (car_Id)
+)
+go
+
+/*==============================================================*/
+/* Table: CardPayment                                           */
+/*==============================================================*/
+create table CardPayment (
+   card_Id              int                  not null,
+   acc_Id               int                  not null,
+   card_number          numeric(16)          not null,
+   card_CVC             numeric(3)           not null,
+   card_end_date        datetime             not null,
+   constraint PK_CARDPAYMENT primary key nonclustered (card_Id)
+)
+go
+
+/*==============================================================*/
+/* Table: Proposal                                              */
+/*==============================================================*/
+create table Proposal (
+   prop_Id              int                  not null,
+   car_Id               int                  null,
+   prop_label           char(32)             not null,
+   prop_description     char(1000)           not null,
+   prop_price           numeric(10)          not null,
+   prop_image           char(1000)           not null,
+   constraint PK_PROPOSAL primary key nonclustered (prop_Id)
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_1_FK                                     */
+/*==============================================================*/
+create index Relationship_1_FK on Proposal (
+car_Id ASC
+)
+go
+
+/*==============================================================*/
+/* Table: Rent                                                  */
+/*==============================================================*/
+create table Rent (
+   rent_Id              int                  not null,
+   acc_Id               int                  null,
+   card_Id              int                  not null,
+   prop_Id              int                  not null,
+   rent_time            numeric(2)           not null,
+   rent_start_date      datetime             not null,
+   rent_end_date        datetime             not null,
+   constraint PK_RENT primary key nonclustered (rent_Id)
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_4_FK                                     */
+/*==============================================================*/
+create index Relationship_4_FK on Rent (
+acc_Id ASC
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_6_FK                                     */
+/*==============================================================*/
+create index Relationship_6_FK on Rent (
+card_Id ASC
+)
+go
+
+/*==============================================================*/
+/* Table: Support                                               */
+/*==============================================================*/
+create table Support (
+   supp_Id              int                  not null,
+   acc_Id               int                  null,
+   supp_ticket_number   int                  not null,
+   supp_message         char(1000)           not null,
+   constraint PK_SUPPORT primary key nonclustered (supp_Id)
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_8_FK                                     */
+/*==============================================================*/
+create index Relationship_8_FK on Support (
+acc_Id ASC
+)
+go
+

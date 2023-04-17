@@ -1,0 +1,72 @@
+﻿.register {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.input {
+	width: 150px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	margin-bottom: 10px;
+	padding-left: 10px;
+}
+
+.pick {
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.helper {
+	text-align: center;
+	margin-top: 20px;
+}
+
+	.helper a {
+		color: darkblue;
+		text-decoration: underline;
+	}
+
+.form {
+	display: inline-block;
+	background-color: white;
+	width: 20%;
+	height: auto;
+	margin: 3%;
+	border-radius: 8px;
+	padding: 1% 1%;
+	text-align: center;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px;
+}
+
+	.form a {
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+.button {
+	background-color: darkblue;
+	border: none;
+	color: white;
+	padding: 3% 20%;
+	text-align: center;
+	text-decoration: none;
+	margin: 3%;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 40px;
+}
+
+	.button:hover {
+		background-color: lightblue;
+	}
